@@ -1,0 +1,17 @@
+{
+  "name": "cours-musique-en-ligne",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "generate-webp": "node scripts/generate-webp.mjs"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

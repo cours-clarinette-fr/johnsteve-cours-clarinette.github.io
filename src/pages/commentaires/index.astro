@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+const commentsImage = `${base}images/_vi_hBh00LRP1uY_maxresdefault.jpg`;
+---
+
+<Layout title="Commentaires — John Steve Clarinette" description="Commentaires et avis sur les cours de clarinette.">
+  <h1>Commentaires</h1>
+  <div class="comments-image-wrapper">
+    <img
+      src={commentsImage}
+      alt="Commentaires et avis"
+      width={1280}
+      height={720}
+      class="comments-image"
+      loading="lazy"
+    />
+  </div>
+  <div class="comments-wrapper">
+    <iframe
+      class="comments-plugin"
+      title="Comments"
+      aria-label="Comments"
+      scrolling="no"
+      src="https://app.commentsplugin.com/widget-wix?pageId=yy949&amp;compId=comp-k06dnh2t&amp;viewerCompId=comp-k06dnh2t&amp;siteRevision=4&amp;viewMode=site&amp;deviceType=desktop&amp;locale=fr&amp;tz=Europe%2FParis&amp;regionalLanguage=fr&amp;width=500&amp;height=262&amp;instance=BlX2rdIDwdhhOMINVM-rLL8a-oB1VaxVnbOYfIdw-IA.eyJpbnN0YW5jZUlkIjoiNjFjNTBmZmQtM2YxZC00NGI3LThmZDctNjE4MTQ5MDIyNGQxIiwiYXBwRGVmSWQiOiIxMzAxNjU4OS1hOWViLTQyNGEtOGE2OS00NmNiMDVjZTBiMmMiLCJzaWduRGF0ZSI6IjIwMjYtMDMtMDFUMjI6MzA6MTguOTE1WiIsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiZDAzMTdhZjItZDdkZi00OTk2LWJkOWUtYzA0ZjQ5NGNmOTExIiwic2l0ZU93bmVySWQiOiIyOTg5OTgzYi01ZTY5LTQwZDAtOTE4Mi05ZDA3NjQyMWQ4NTQiLCJicyI6IkVpOTVZbkZPXzk5VlNWZjZyVHdiMDYxanZkMDJoSzNHYmx2d3dQZjAwTnciLCJzY2QiOiIyMDE5LTA4LTE2VDA3OjMzOjMyLjE5M1oifQ&amp;currency=EUR&amp;currentCurrency=EUR&amp;commonConfig=%7B%22brand%22%3A%22wix%22%2C%22host%22%3A%22VIEWER%22%2C%22bsi%22%3A%22bbb3d030-488b-432b-ab99-e681b3479917%7C1%22%2C%22siteRevision%22%3A%224%22%2C%22branchId%22%3A%22e67faf40-81ba-4410-8ffb-fc10e55b2954%22%2C%22renderingFlow%22%3A%22NONE%22%2C%22language%22%3A%22fr%22%2C%22locale%22%3A%22fr-fr%22%2C%22BSI%22%3A%22bbb3d030-488b-432b-ab99-e681b3479917%7C1%22%7D&amp;currentRoute=.%2Fcommentaires&amp;vsi=fd7c19cc-ceba-4f70-9a89-a14ac7728972"
+      allowfullscreen
+      allowtransparency="true"
+      allowvr="true"
+      frameborder="0"
+      allow="clipboard-write;autoplay;camera;microphone;geolocation;vr"
+    ></iframe>
+  </div>
+</Layout>
+
+<style>
+  .comments-image-wrapper {
+    width: 100%;
+    max-width: 640px;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .comments-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .comments-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 262px;
+  }
+  .comments-plugin {
+    width: 100%;
+    height: 262px;
+    border: none;
+    display: block;
+  }
+</style>

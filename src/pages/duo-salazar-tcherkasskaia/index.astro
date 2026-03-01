@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Picture from '../../components/Picture.astro';
+
+const base = import.meta.env.BASE_URL;
+const duoBase = `${base}images/duo/`;
+
+const heroDuoImage = '51190470_2051149285184733_28966288260690.avif';
+
+const duoPhotos = [
+  '53600237_2076970922602569_12627408763129.avif',
+  '53862909_2076970559269272_48675678175971.avif',
+  '53912528_2076970885935906_61003743566999.avif',
+  '54175308_2076970809269247_24980301126712.avif',
+  '54278115_2076970865935908_12350909291283.avif',
+  '54357722_2076970912602570_88367462577592.avif',
+  '54462714_2076970755935919_42777875986146.avif',
+  '54522664_2076970915935903_38242209145102.avif',
+  '59295133_2106502766316051_50825411313092.avif',
+];
+---
+
+<Layout
+  title="Duo Salazar-Tcherkasskaia — John Steve Clarinette"
+  description="Duo clarinette et piano fondé par John Steve et Anna Tcherkasskaia. Musique de chambre, œuvres françaises, russes et latino-américaines."
+>
+  <h1>Duo Salazar-Tcherkasskaia</h1>
+
+  <section class="intro-with-image">
+    <div class="intro-text">
+      <p>
+        Fondé en 2018 par John Steve et Anna Tcherkasskaia au piano, le Duo a pour but d’exprimer une musique riche en couleurs.
+      </p>
+      <p>
+        Sa mission principale est d’amener la musique écrite pour clarinette et piano à un public plus diversifié.
+      </p>
+      <p>
+        Souffle et marteaux, anches et cordes, clés et claviers se rencontrent, se confrontent et s’accordent pour produire une sonorité riche, puissante et unique.
+      </p>
+    </div>
+    <div class="intro-image">
+      <Picture
+        src={`${duoBase}${heroDuoImage}`}
+        alt="Duo Salazar-Tcherkasskaia, clarinette et piano"
+        width={600}
+        height={450}
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <section class="presentation">
+    <p>
+      Respirant d’un même souffle, ces deux artistes vous invitent à les suivre dans leur virtuosité et leur sensibilité. Les timbres de leurs instruments, aux caractères si différents, entrent en mouvement et, au rythme de la musique, se dévisagent, se confrontent parfois et se complètent toujours, sans pour autant renier leurs singularités.
+    </p>
+    <p>Les deux artistes sont de formation classique.</p>
+  </section>
+
+  <section class="anna-bio">
+    <h2>Anna Tcherkasskaia</h2>
+    <p>
+      Originaire de St-Pétersbourg (Russie), Anna Tcherkasskaia est diplômée du Conservatoire Rimsky-Korsakov de St-Pétersbourg dans les classes de piano, musique de chambre, accompagnement et formation musicale. Par la suite, elle choisit de se perfectionner aux CRR de Boulogne et de St-Maur, où elle remporte de nombreux prix et à l’Ecole Normale de Musique de Paris où elle obtient brillamment le Diplôme Supérieur de Piano.
+    </p>
+    <p>
+      Parallèlement elle travaille avec S. Zapolsky (CNSM de Paris) en qualité d’accompagnatrice. Elle se produit régulièrement avec des solistes lyriques, notamment à l’Opéra de Nancy, et comme chef de chant à l’Opéra d’Ekaterinbourg, en collaboration avec P. Klinitchev et I. Ouchakov (Théâtre Bolchoï).
+    </p>
+    <p>
+      Titulaire du CA, elle est lauréate en 2013 du concours externe de professeur d’enseignement artistique (PEA).
+    </p>
+  </section>
+
+  <section class="repertoire">
+    <h2>Répertoire</h2>
+    <p>
+      Ces deux artistes abordent des œuvres de compositeurs variés, notamment français et aussi russes et latino-américains en créant une atmosphère de chaleureuse complicité.
+    </p>
+  </section>
+
+  <section class="gallery-section">
+    <h2>Photos du duo</h2>
+    <ul class="gallery" role="list">
+      {duoPhotos.map((src) => (
+        <li class="gallery-item">
+          <Picture
+            src={`${duoBase}${src}`}
+            alt="Duo Salazar-Tcherkasskaia"
+            width={800}
+            height={600}
+            loading="lazy"
+          />
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .intro-with-image {
+    display: grid;
+    grid-template-columns: 1fr minmax(280px, 380px);
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+  }
+  .intro-text p {
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+  }
+  .intro-image {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .intro-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 640px) {
+    .intro-with-image {
+      grid-template-columns: 1fr;
+    }
+    .intro-image {
+      order: -1;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+  .presentation,
+  .anna-bio,
+  .repertoire {
+    margin-bottom: 2rem;
+  }
+  .presentation p,
+  .anna-bio p,
+  .repertoire p {
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+  }
+  .anna-bio h2,
+  .repertoire h2,
+  .gallery-section h2 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.5rem;
+    color: var(--color-accent);
+  }
+  .gallery-section h2 {
+    margin-top: 2.5rem;
+  }
+  .gallery {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Picture from '../../components/Picture.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const photos = [
+  { src: '53923192_2076970772602584_54945052202914.avif', alt: 'John Steve, clarinettiste' },
+  { src: '55917842_2088322058134122_18827764254763.avif', alt: 'Concert' },
+  { src: '56140564_2088322144800780_12259275476828.avif', alt: 'Concert' },
+  { src: 'Imposible no caer rendido ante la Dama d.avif', alt: 'Imposible no caer rendido ante la Dama' },
+  { src: 'John foto con clarinete.avif', alt: 'John avec clarinette' },
+  { src: 'Quinteto clarinete y cuerdas.avif', alt: 'Quinteto clarinete y cuerdas' },
+  { src: 'Quinteto de clarinete y cuerdas 1.avif', alt: 'Quinteto de clarinete y cuerdas' },
+  { src: 'Tocando como solista con la Orquesta Sin.avif', alt: 'En soliste avec l\'orchestre symphonique' },
+];
+---
+
+<Layout title="Photos — John Steve Clarinette" description="Photos de John Steve, clarinettiste.">
+  <h1>Photos</h1>
+  <p class="intro">Quelques moments en concert, en quintette et en soliste.</p>
+
+  <ul class="gallery" role="list">
+    {photos.map(({ src, alt }) => (
+      <li class="gallery-item">
+        <Picture
+          src={`${base}images/${src}`}
+          alt={alt}
+          width={800}
+          height={600}
+          loading="lazy"
+        />
+      </li>
+    ))}
+  </ul>
+</Layout>
+
+<style>
+  .intro {
+    margin-bottom: 2rem;
+    color: #b0b0b0;
+  }
+  .gallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+</style>

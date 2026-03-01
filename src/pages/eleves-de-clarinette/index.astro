@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const temoignages = [
+  { id: 1, src: '/videos/temoignage-1.mp4' },
+  { id: 2, src: '/videos/temoignage-2.mp4' },
+  { id: 3, src: '/videos/temoignage-3.mp4' },
+  { id: 4, src: '/videos/temoignage-4.mp4' },
+  { id: 5, src: '/videos/temoignage-5.mp4' },
+  { id: 6, src: '/videos/temoignage-6.mp4' },
+  { id: 7, src: '/videos/temoignage-7.mp4' },
+];
+
+const youtubeVideos = [
+  { id: 'vq1i05GXQBc', title: 'Michel Condemine. Jean Xavier Lefèvre. Sonata N° 1, 3ème mouvement.' },
+  { id: 'gIiqqA9VeQo', title: 'Michel Condemine. Isaac Albeniz : Tango' },
+  { id: 'ZGeXG_ApZJ0', title: 'Suzanne Bedel. Jean - Louis Margo : Étude N° 20' },
+  { id: 'SKTw1hF_nOA', title: 'Sébastien Slisse. Artie shaw : Étude en Do majeur' },
+  { id: 'GybTcSDEbcY', title: 'Bernard Nouhant. Puccini : E lucevan le stelle.' },
+  { id: 'EX0t2rH95NA', title: 'Bernard Riethmüller. Jean - Louis Margo Etude N° 10' },
+  { id: 'Neak3V_Kwi4', title: 'Au pied de la tour. Catherine Barichnikoff' },
+  { id: 'lS6ZeDpzqUg', title: 'Catherine Barichnikoff. Brahms : Finale, de la symphonie 4' },
+  { id: '5MAMmITZmZM', title: 'Simon Tessier-Dienstag. Valse minute' },
+  { id: 'SO_BEJkNQYU', title: 'Camille Hensch. Axel Doisneau, clarinettes. Scarborough Fair' },
+  { id: 'XFUdIc6jCPk', title: 'W. A. Mozart : Petite musique de nuit. Sébastien Slisse, Bernard Riethmüller, Michel Condemine' },
+];
+---
+
+<Layout title="Elèves de clarinette — John Steve Clarinette" description="Témoignages vidéo des élèves de clarinette.">
+  <h1>Elèves de clarinette</h1>
+  <p class="intro">Découvrez les témoignages vidéo des élèves.</p>
+
+  <section class="temoignages-videos">
+    {temoignages.map((t) => (
+      <article class="temoignage-card">
+        <h2 class="temoignage-title">Témoignage {t.id}</h2>
+        <video class="temoignage-video" controls preload="metadata" playsinline>
+          <source src={t.src} type="video/mp4" />
+          Votre navigateur ne prend pas en charge la lecture de vidéos.
+        </video>
+      </article>
+    ))}
+  </section>
+
+  <section class="youtube-videos">
+    <h2 class="section-title">Enregistrements des élèves</h2>
+    {youtubeVideos.map((v) => (
+      <article class="youtube-card">
+        <h3 class="youtube-title">{v.title}</h3>
+        <div class="youtube-wrapper">
+          <iframe
+            src={`https://www.youtube.com/embed/${v.id}?rel=0`}
+            title={v.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            frameborder="0"
+            class="youtube-iframe"
+          />
+        </div>
+      </article>
+    ))}
+  </section>
+</Layout>
+
+<style>
+  .intro {
+    margin-bottom: 2rem;
+  }
+  .temoignages-videos {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .temoignage-card {
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(201, 162, 39, 0.15);
+  }
+  .temoignage-title {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+    color: var(--color-accent);
+  }
+  .temoignage-video {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 6px;
+    background: #000;
+  }
+  .youtube-videos {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .section-title {
+    font-size: 1.35rem;
+    margin: 0 0 1.5rem;
+    color: var(--color-accent);
+  }
+  .youtube-card {
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(201, 162, 39, 0.15);
+  }
+  .youtube-card:last-child {
+    margin-bottom: 0;
+  }
+  .youtube-title {
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  .youtube-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #000;
+  }
+  .youtube-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

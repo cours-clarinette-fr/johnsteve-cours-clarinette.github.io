@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { concerts } from '../../data/concerts';
+---
+
+<Layout title="Concerts — John Steve Clarinette" description="Concerts et récitals de John Steve, clarinettiste.">
+  <h1>Concerts</h1>
+  <ul class="concert-list">
+    {concerts.map((c) => (
+      <li class="concert">
+        <time class="concert-date">{c.date}</time>
+        <h2 class="concert-title">{c.title}</h2>
+        <p class="concert-desc">{c.description}</p>
+        <p class="concert-location">{c.location}</p>
+      </li>
+    ))}
+  </ul>
+</Layout>
+
+<style>
+  .concert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .concert {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .concert:last-child {
+    border-bottom: none;
+  }
+  .concert-date {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+  }
+  .concert-title {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+  }
+  .concert-desc,
+  .concert-location {
+    font-size: 0.95rem;
+    color: #b0b0b0;
+    margin: 0 0 0.25rem;
+  }
+</style>

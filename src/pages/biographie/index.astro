@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Picture from '../../components/Picture.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Biographie — John Steve Clarinette" description="Biographie de John Steve, clarinettiste. Parcours, formations et activité de concert.">
+  <h1>Biographie</h1>
+
+  <section class="bio-section">
+    <div class="bio-content">
+      <p>
+        John Steve est né dans la province de Trujillo, au Pérou. Il commence ses études au Conservatoire Régional de Musique «&nbsp;Carlos Valderrama&nbsp;» de sa ville, continue sa formation au Conservatoire National de Musique à Lima où il obtient le Diplôme d'État de clarinette avec le professeur Claudio Panta.
+      </p>
+      <p>
+        Au cours de ses études, il a assisté à de nombreuses master classes avec différents clarinettistes de renommée internationale tels que Carlos Cespedez (Argentine), Victoria Soames (Angleterre), Ayako Oshima (Japon), Thierry Wartelle et Philippe Cuper (France), entre autres. En même temps, il fonde le Quintette de Clarinettes de l'Alliance Française de Lima avec lequel il fait des tournées dans plusieurs villes au Pérou et en France.
+      </p>
+      <p>
+        Puis il déménage à Paris pour poursuivre ses études à l'École Normale de Paris Alfred Cortot avec M. Guy Deplus, puis au Conservatoire à Rayonnement Départemental Iannis Xenakis avec Isabelle Duthoit et Joel Schemer où il obtient son DEM de clarinette.
+      </p>
+      <p>
+        En Europe, il a participé aux Festivals Internationaux de Clarinette organisés par la ICA (International Clarinet Association) à Assise (2013) et Madrid (2015), en assistant aux master classes données par Kari Kriikku, Ricardo Morales, Philippe Berrod, Philippe Cuper, Karl Leister…
+      </p>
+      <p>
+        Il a été membre de l'Orchestre d'Harmonie du Conservatoire Carlos Valderrama de Trujillo, de l'Orchestre Symphonique de Trujillo, de l'Orchestre Symphonique du Conservatoire National de Musique, de l'Orchestre Symphonique Municipal de Piura, de l'Orchestre Symphonique du Conservatoire Iannis Xenakis, avec lesquels il a été soliste invité à plusieurs reprises.
+      </p>
+      <p>
+        Son activité comme chambriste est aussi très vaste, avec de nombreuses formations : en duo avec piano, trio clarinette–violoncelle–piano, clarinette–alto–piano, clarinette–violon–piano, trio clarinette–flûte–piano, quintette avec quatuor à cordes…
+      </p>
+      <p>
+        Actuellement, il forme un duo avec la pianiste Anna Tcherkasskaia.
+      </p>
+      <p>
+        Il a donné de nombreux récitals de musique de chambre dans différentes villes du Pérou : au Théâtre Municipal de Trujillo, Théâtre Municipal de Piura, Théâtre Segura à Lima. En France : Théâtre de l'Agora à Évry, Salle Cortot à Paris, Auditorium du Centre Culturel Orthodoxe Russe et de nombreuses salles et auditoriums, ainsi que dans des églises, collèges et universités.
+      </p>
+      <p>
+        Sa capacité en tant que professeur lui a permis d'avoir une intense activité avec de nombreux étudiants. Il a enseigné la clarinette et la formation musicale dans les associations culturelles Arte para Crecer et Kodaly à Lima, en préparant les candidats au Conservatoire National de Musique.
+      </p>
+      <p>
+        Actuellement à Paris, il est professeur de clarinette de l'association Un Million de Musiques à Vincennes (depuis 2011), au Maxi Conservatoire dans l'École de Musique Massillon à Paris et à l'école de musique Pierre Paubon à Palaiseau.
+      </p>
+      <p>
+        John Steve utilise des clarinettes Selmer Privilege.
+      </p>
+    </div>
+    <aside class="bio-photo">
+      <Picture
+        src={`${base}images/John foto con clarinete.avif`}
+        alt="John Steve avec sa clarinette"
+        width={400}
+        height={600}
+        loading="eager"
+        decoding="async"
+      />
+    </aside>
+  </section>
+</Layout>
+
+<style>
+  .bio-section {
+    display: grid;
+    grid-template-columns: 1fr min(320px, 35%);
+    gap: 2.5rem;
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+
+  .bio-content {
+    min-width: 0;
+  }
+
+  .bio-content p {
+    margin: 0 0 1rem;
+    color: #e0e0e0;
+  }
+
+  .bio-photo {
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .bio-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+  }
+
+  @media (max-width: 700px) {
+    .bio-section {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .bio-photo {
+      position: static;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+</style>

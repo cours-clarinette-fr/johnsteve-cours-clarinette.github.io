@@ -1,0 +1,9 @@
+https://youtu.be/gIiqqA9VeQo
+<iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Michel Condemine. Jean Xavier Lefèvre. Sonata N° 1, 3ème mouvement." width="100%" height="100%" src="https://www.youtube.com/embed/vq1i05GXQBc?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fjohnstevesg.wixsite.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1&amp;forigin=https%3A%2F%2Fjohnstevesg.wixsite.com%2Fclarinettiste%2Fel%25C3%25A8ves-de-clarinette&amp;aoriginsup=1&amp;vf=1" id="widget2">
+</iframe>
+
+<iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Michel Condemine. Isaac Albeniz : Tango" width="100%" height="100%" src="https://www.youtube.com/embed/gIiqqA9VeQo?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fjohnstevesg.wixsite.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=3&amp;forigin=https%3A%2F%2Fjohnstevesg.wixsite.com%2Fclarinettiste%2Fel%25C3%25A8ves-de-clarinette&amp;aoriginsup=1&amp;vf=6" id="widget4">
+</iframe>
+
+<iframe frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Suzanne Bedel. Jean - Louis Margo : Étude N° 20" width="100%" height="100%" src="https://www.youtube.com/embed/ZGeXG_ApZJ0?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fjohnstevesg.wixsite.com&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=5&amp;forigin=https%3A%2F%2Fjohnstevesg.wixsite.com%2Fclarinettiste%2Fel%25C3%25A8ves-de-clarinette&amp;aoriginsup=1&amp;vf=1" id="widget6">
+</iframe>

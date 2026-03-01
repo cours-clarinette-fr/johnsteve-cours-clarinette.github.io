@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const videos = [
+  {
+    id: 'bAETFV9QUcM',
+    title: 'Weber — Concert pour clarinette et orchestre, 1er mouv.',
+    description: 'John Steve à la clarinette. Weber : Concert pour clarinette et orchestre, 1er mouvement.',
+  },
+  {
+    id: 'jNpRTZjvwDI',
+    title: 'Nino Rota — Trio pour clarinette, violoncelle et piano',
+    description: 'Trio pour clarinette, violoncelle et piano (3e mouv. « Appassionato »). Neuilly sur Seine, 2015.',
+  },
+  {
+    id: 'iWasojPjaX4',
+    title: 'Beethoven — Trio opus 11',
+    description: 'Trio pour clarinette, violoncelle et piano opus 11 (3e mouv.). Neuilly sur Seine, 2015.',
+  },
+  {
+    id: 'MAky3mSjz3w',
+    title: 'R. Korsakov — Le vol du bourdon',
+    description: 'Quintette de clarinettes du Conservatoire National de Musique Amiens. 2007.',
+  },
+  {
+    id: 'ci82Zug2uFk',
+    title: 'Mendelssohn — Song without words',
+    description: 'Quintette de clarinettes du Conservatoire National de Musique Amiens. 2007.',
+  },
+  {
+    id: 'J9p7W9MDAdM',
+    title: 'Jazz quintet',
+    description: 'Quintette de clarinettes du Conservatoire National de Musique Amiens. 2007.',
+  },
+  {
+    id: '1uvlTp1Rsg4',
+    title: 'Chabuca Granda — La flor de la canela',
+    description: 'Quintette de clarinettes du CNM. Amiens, 2007.',
+  },
+  {
+    id: 'QDcYLpMK2uQ',
+    title: 'Jorge Bravo de Rueda — Virgenes del sol',
+    description: 'Ovela Cuadros, soprano. Quintette de clarinettes du CNM. Amiens 2007.',
+  },
+];
+---
+
+<Layout title="Vidéos / Enregistrements — John Steve Clarinette" description="Vidéos et enregistrements de John Steve, clarinettiste. Weber, Beethoven, Nino Rota, quintettes et trios.">
+  <h1>Vidéos</h1>
+  <p class="intro">Quelques enregistrements en concert et en studio.</p>
+
+  <section class="videos-grid" aria-label="Liste des vidéos">
+    {videos.map((video) => (
+      <article class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src={`https://www.youtube.com/embed/${video.id}?rel=0`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          />
+        </div>
+        <div class="video-info">
+          <h2 class="video-title">{video.title}</h2>
+          <p class="video-description">{video.description}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+</Layout>
+
+<style>
+  .intro {
+    margin-bottom: 2rem;
+    color: #b0b0b0;
+  }
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .video-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    background: var(--color-surface);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-info {
+    flex: 1;
+  }
+  .video-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    line-height: 1.3;
+  }
+  .video-description {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  @media (max-width: 640px) {
+    .videos-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Calendrier — John Steve Clarinette" description="Calendrier des concerts et événements.">
+  <h1>Calendrier</h1>
+  <div class="calendar-wrapper">
+    <iframe
+      class="events-calendar"
+      title="Events Calendar"
+      aria-label="Events Calendar"
+      scrolling="no"
+      src="https://plugin.eventscalendar.co/widget.html?pageId=qj8ve&amp;compId=comp-k06dezc0&amp;viewerCompId=comp-k06dezc0&amp;siteRevision=4&amp;viewMode=site&amp;deviceType=desktop&amp;locale=fr&amp;tz=Europe%2FParis&amp;regionalLanguage=fr&amp;width=568&amp;height=598&amp;instance=rNtTKogtBpTETo69-x50RYzvz-fSiU7NXF_CUAMFmzc.eyJpbnN0YW5jZUlkIjoiNzhlOTIxMDAtZTg3Yi00NTcxLTllOTYtMmYwNmNjMThjY2NiIiwiYXBwRGVmSWQiOiIxMzNiYjExZS1iM2RiLTdlM2ItNDliYy04YWExNmFmNzJjYWMiLCJzaWduRGF0ZSI6IjIwMjYtMDMtMDFUMjI6Mjg6NTYuODI4WiIsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiZDAzMTdhZjItZDdkZi00OTk2LWJkOWUtYzA0ZjQ5NGNmOTExIiwic2l0ZU93bmVySWQiOiIyOTg5OTgzYi01ZTY5LTQwZDAtOTE4Mi05ZDA3NjQyMWQ4NTQiLCJicyI6IkVpOTVZbkZPXzk5VlNWZjZyVHdiMDYxanZkMDJoSzNHYmx2d3dQZjAwTnciLCJzY2QiOiIyMDE5LTA4LTE2VDA3OjMzOjMyLjE5M1oifQ&amp;currency=EUR&amp;currentCurrency=EUR&amp;commonConfig=%7B%22brand%22%3A%22wix%22%2C%22host%22%3A%22VIEWER%22%2C%22bsi%22%3A%22bbb3d030-488b-432b-ab99-e681b3479917%7C1%22%2C%22siteRevision%22%3A%224%22%2C%22branchId%22%3A%22e67faf40-81ba-4410-8ffb-fc10e55b2954%22%2C%22renderingFlow%22%3A%22NONE%22%2C%22language%22%3A%22fr%22%2C%22locale%22%3A%22fr-fr%22%2C%22BSI%22%3A%22bbb3d030-488b-432b-ab99-e681b3479917%7C1%22%7D&amp;currentRoute=.%2Fcalendrier&amp;vsi=bb6dfdb7-5282-4bc8-8e3b-5f8f7548745d"
+      allowfullscreen
+      allowtransparency="true"
+      allowvr="true"
+      frameborder="0"
+      allow="clipboard-write;autoplay;camera;microphone;geolocation;vr"
+    ></iframe>
+  </div>
+</Layout>
+
+<style>
+  .calendar-wrapper {
+    width: 100%;
+    max-width: 568px;
+    margin: 0 auto;
+    min-height: 598px;
+  }
+  .events-calendar {
+    width: 100%;
+    height: 598px;
+    border: none;
+    display: block;
+  }
+</style>

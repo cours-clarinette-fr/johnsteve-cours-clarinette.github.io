@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Picture from '../components/Picture.astro';
+
+const base = import.meta.env.BASE_URL;
+const heroImage = `${base}images/53923192_2076970772602584_54945052202914.avif`;
+
+const testimonials = [
+  {
+    text: "Avec beaucoup de pédagogie, John Steve sait donner les clés qui permettent de progresser. Le tout avec le sourire ! Un super prof",
+    author: "Sébastien",
+  },
+  {
+    text: "John Steve est extrêmement agréable et pédagogue. Il est patient et exigeant à la fois, très encourageant pour un élève débutant et toujours prêt à répondre aux questions ! Je le recommande vivement pour l'apprentissage d'un instrument dont il rend d'emblée la pratique accessible et gratifiante",
+    author: "Cécile (maman de Suzanne, 11 ans)",
+  },
+  {
+    text: "John Steve donne des cours depuis 2 ans à mon fils de 13 ans. Il fait preuve d'une grande patience. Sait parfaitement s'adapter aux besoins et envies de ses élèves. Le progrès et le goût pour l'instrument sont au rendez-vous",
+    author: "Anne (maman d'Adrien, 13 ans)",
+  },
+  {
+    text: "Donner envie de jouer et progresser ... en un an, John Steve a permis à un jeune garçon de 12 ans de comprendre pourquoi il jouait de la clarinette. Entre un enseignement sur mesure et des initiatives de pratiques de groupe, un véritable investissement de la part d'un professionnel.",
+    author: "Ariane (maman de Simon, 13 ans)",
+  },
+];
+---
+
+<Layout title="John Steve — Clarinette" description="John Steve, clarinettiste. Cours, concerts et enregistrements.">
+  <section class="hero" aria-label="Bandeau d'accueil">
+    <Picture
+      src={heroImage}
+      alt="John Steve, clarinettiste"
+      width={1200}
+      height={630}
+      fetchpriority="high"
+    />
+    <div class="hero-overlay">
+      <h1 class="name">John Steve</h1>
+      <h2 class="instrument">Clarinette</h2>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Avis des élèves</h2>
+    {testimonials.map((t) => (
+      <blockquote class="testimonial">
+        <p>"{t.text}" <cite>{t.author}</cite></p>
+      </blockquote>
+    ))}
+  </section>
+
+  <section class="social">
+    <p>Retrouvez-moi sur :</p>
+    <ul>
+      <li><a href="#" aria-label="Facebook">Facebook</a></li>
+      <li><a href="#" aria-label="Twitter">Twitter</a></li>
+      <li><a href="#" aria-label="YouTube">YouTube</a></li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    margin: -2rem -1.5rem 0;
+    max-width: calc(900px + 3rem);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
+  }
+  .hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.7) 100%);
+    padding: 2rem;
+    text-align: center;
+  }
+  .hero .name {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin: 0 0 0.25rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .hero .instrument {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin: 0;
+    color: var(--color-accent);
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  }
+  .name { color: #fff; }
+  .instrument { color: var(--color-accent); font-weight: 500; }
+  .testimonials {
+    margin-top: 2rem;
+  }
+  .testimonials h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial {
+    margin: 0 0 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-style: italic;
+  }
+  .testimonial:last-of-type {
+    border-bottom: none;
+  }
+  .testimonial cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-size: 0.95rem;
+    color: #b0b0b0;
+  }
+  .social {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .social a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .social a:hover {
+    text-decoration: underline;
+  }
+</style>
