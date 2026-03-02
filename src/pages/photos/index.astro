@@ -26,8 +26,6 @@ const photos = [
         <Picture
           src={`${base}images/${src}`}
           alt={alt}
-          width={800}
-          height={600}
           loading="lazy"
         />
       </li>
@@ -54,6 +52,7 @@ const photos = [
     background: var(--color-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
+  .gallery-item picture,
   .gallery-item img {
     display: block;
     width: 100%;

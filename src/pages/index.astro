@@ -30,8 +30,6 @@ const testimonials = [
     <Picture
       src={heroImage}
       alt="John Steve, clarinettiste"
-      width={1200}
-      height={630}
       fetchpriority="high"
     />
     <div class="hero-overlay">
@@ -49,14 +47,14 @@ const testimonials = [
     ))}
   </section>
 
-  <section class="social">
+  <!--<section class="social">
     <p>Retrouvez-moi sur :</p>
     <ul>
       <li><a href="#" aria-label="Facebook">Facebook</a></li>
       <li><a href="#" aria-label="Twitter">Twitter</a></li>
       <li><a href="#" aria-label="YouTube">YouTube</a></li>
     </ul>
-  </section>
+  </section>-->
 </Layout>
 
 <style>
@@ -69,13 +67,12 @@ const testimonials = [
     overflow: hidden;
     border-radius: 0 0 12px 12px;
   }
+  .hero picture,
   .hero img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 50vh;
-    object-fit: cover;
-    object-position: center;
+    vertical-align: middle;
   }
   .hero-overlay {
     position: absolute;

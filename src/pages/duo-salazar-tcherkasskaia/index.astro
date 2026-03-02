@@ -112,13 +112,12 @@ const duoPhotos = [
     background: var(--color-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
+  .intro-image picture,
   .intro-image img {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center;
+    vertical-align: middle;
   }
   @media (max-width: 640px) {
     .intro-with-image {
@@ -165,12 +164,11 @@ const duoPhotos = [
     background: var(--color-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
+  .gallery-item picture,
   .gallery-item img {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center;
+    vertical-align: middle;
   }
 </style>
