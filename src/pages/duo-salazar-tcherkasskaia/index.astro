@@ -7,16 +7,16 @@ const duoBase = `${base}images/duo/`;
 
 const heroDuoImage = '51190470_2051149285184733_28966288260690.avif';
 
-const duoPhotos = [
-  '53600237_2076970922602569_12627408763129.avif',
-  '53862909_2076970559269272_48675678175971.avif',
-  '53912528_2076970885935906_61003743566999.avif',
-  '54175308_2076970809269247_24980301126712.avif',
-  '54278115_2076970865935908_12350909291283.avif',
-  '54357722_2076970912602570_88367462577592.avif',
-  '54462714_2076970755935919_42777875986146.avif',
-  '54522664_2076970915935903_38242209145102.avif',
-  '59295133_2106502766316051_50825411313092.avif',
+const duoPhotos: { src: string; orientation: 'portrait' | 'paysage' }[] = [
+  { src: '53600237_2076970922602569_12627408763129.avif', orientation: 'paysage' },
+  { src: '53862909_2076970559269272_48675678175971.avif', orientation: 'paysage' },
+  { src: '53912528_2076970885935906_61003743566999.avif', orientation: 'paysage' },
+  { src: '54175308_2076970809269247_24980301126712.avif', orientation: 'paysage' },
+  { src: '54278115_2076970865935908_12350909291283.avif', orientation: 'paysage' },
+  { src: '54357722_2076970912602570_88367462577592.avif', orientation: 'paysage' },
+  { src: '54462714_2076970755935919_42777875986146.avif', orientation: 'paysage' },
+  { src: '54522664_2076970915935903_38242209145102.avif', orientation: 'paysage' },
+  { src: '59295133_2106502766316051_50825411313092.avif', orientation: 'portrait' },
 ];
 ---
 
@@ -42,8 +42,8 @@ const duoPhotos = [
       <Picture
         src={`${duoBase}${heroDuoImage}`}
         alt="Duo Salazar-Tcherkasskaia, clarinette et piano"
-        width={600}
-        height={450}
+        width={380}
+        height={570}
         loading="eager"
       />
     </div>
@@ -79,13 +79,13 @@ const duoPhotos = [
   <section class="gallery-section">
     <h2>Photos du duo</h2>
     <ul class="gallery" role="list">
-      {duoPhotos.map((src) => (
-        <li class="gallery-item">
+      {duoPhotos.map((photo) => (
+        <li class={`gallery-item gallery-item--${photo.orientation}`}>
           <Picture
-            src={`${duoBase}${src}`}
+            src={`${duoBase}${photo.src}`}
             alt="Duo Salazar-Tcherkasskaia"
-            width={800}
-            height={600}
+            width={photo.orientation === 'portrait' ? 400 : 600}
+            height={photo.orientation === 'portrait' ? 600 : 400}
             loading="lazy"
           />
         </li>
@@ -111,13 +111,17 @@ const duoPhotos = [
     overflow: hidden;
     background: var(--color-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    line-height: 0;
   }
-  .intro-image picture,
+  .intro-image picture {
+    display: block;
+    line-height: 0;
+  }
   .intro-image img {
     display: block;
     width: 100%;
     height: auto;
-    vertical-align: middle;
+    vertical-align: top;
   }
   @media (max-width: 640px) {
     .intro-with-image {
@@ -153,22 +157,32 @@ const duoPhotos = [
   .gallery {
     list-style: none;
     padding: 0;
-    margin: 1rem 0 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    margin: 1rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 560px;
   }
   .gallery-item {
     border-radius: 8px;
     overflow: hidden;
     background: var(--color-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    line-height: 0;
   }
-  .gallery-item picture,
+  .gallery-item--portrait {
+    max-width: 400px;
+  }
+  .gallery-item picture {
+    display: block;
+    line-height: 0;
+  }
   .gallery-item img {
     display: block;
     width: 100%;
     height: auto;
-    vertical-align: middle;
+    vertical-align: top;
   }
 </style>

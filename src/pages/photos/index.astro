@@ -4,15 +4,27 @@ import Picture from '../../components/Picture.astro';
 
 const base = import.meta.env.BASE_URL;
 
-const photos = [
-  { src: '53923192_2076970772602584_54945052202914.avif', alt: 'John Steve, clarinettiste' },
-  { src: '55917842_2088322058134122_18827764254763.avif', alt: 'Concert' },
-  { src: '56140564_2088322144800780_12259275476828.avif', alt: 'Concert' },
-  { src: 'Imposible no caer rendido ante la Dama d.avif', alt: 'Imposible no caer rendido ante la Dama' },
-  { src: 'John foto con clarinete.avif', alt: 'John avec clarinette' },
-  { src: 'Quinteto clarinete y cuerdas.avif', alt: 'Quinteto clarinete y cuerdas' },
-  { src: 'Quinteto de clarinete y cuerdas 1.avif', alt: 'Quinteto de clarinete y cuerdas' },
-  { src: 'Tocando como solista con la Orquesta Sin.avif', alt: 'En soliste avec l\'orchestre symphonique' },
+type PhotoItem = {
+  src: string;
+  alt: string;
+  orientation: 'portrait' | 'paysage';
+  /** Ratio personnalisé (largeur, hauteur) pour les photos au format standard 2:3 / 3:2 */
+  ratio?: [number, number];
+  /** Si true, l'image garde son format naturel (pas de ratio imposé) */
+  naturalFormat?: boolean;
+  /** Si true, réduit l'image pour qu'elle tienne dans un cadre similaire aux autres, sans déformer */
+  constrainInFrame?: boolean;
+};
+
+const photos: PhotoItem[] = [
+//  { src: '53923192_2076970772602584_54945052202914.avif', alt: 'John Steve, clarinettiste', orientation: 'portrait', naturalFormat: true, constrainInFrame: true },
+  { src: '55917842_2088322058134122_18827764254763.avif', alt: 'Concert', orientation: 'paysage' },
+  { src: '56140564_2088322144800780_12259275476828.avif', alt: 'Concert', orientation: 'paysage' },
+  { src: 'Imposible no caer rendido ante la Dama d.avif', alt: 'Imposible no caer rendido ante la Dama', orientation: 'portrait', naturalFormat: true },
+  { src: 'John foto con clarinete.avif', alt: 'John avec clarinette', orientation: 'portrait' },
+  { src: 'Quinteto clarinete y cuerdas.avif', alt: 'Quinteto clarinete y cuerdas', orientation: 'portrait', ratio: [3, 4] },
+  { src: 'Quinteto de clarinete y cuerdas 1.avif', alt: 'Quinteto de clarinete y cuerdas', orientation: 'paysage' },
+  { src: 'Tocando como solista con la Orquesta Sin.avif', alt: 'En soliste avec l\'orchestre symphonique', orientation: 'portrait' },
 ];
 ---
 
@@ -21,15 +33,23 @@ const photos = [
   <p class="intro">Quelques moments en concert, en quintette et en soliste.</p>
 
   <ul class="gallery" role="list">
-    {photos.map(({ src, alt }) => (
-      <li class="gallery-item">
-        <Picture
-          src={`${base}images/${src}`}
-          alt={alt}
-          loading="lazy"
-        />
-      </li>
-    ))}
+    {photos.map((photo) => {
+      const useNaturalFormat = photo.naturalFormat;
+      const [rw, rh] = photo.ratio ?? (photo.orientation === 'portrait' ? [2, 3] : [3, 2]);
+      const picWidth = photo.orientation === 'portrait' ? 400 : 600;
+      const picHeight = photo.orientation === 'portrait' ? Math.round((400 * rh) / rw) : Math.round((600 * rh) / rw);
+      return (
+        <li class={`gallery-item gallery-item--${photo.orientation}${photo.constrainInFrame ? ' gallery-item--constrain' : ''}`}>
+          <Picture
+            src={`${base}images/${photo.src}`}
+            alt={photo.alt}
+            width={useNaturalFormat ? undefined : picWidth}
+            height={useNaturalFormat ? undefined : picHeight}
+            loading="lazy"
+          />
+        </li>
+      );
+    })}
   </ul>
 </Layout>
 
@@ -41,22 +61,46 @@ const photos = [
   .gallery {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 560px;
   }
   .gallery-item {
     border-radius: 8px;
     overflow: hidden;
     background: var(--color-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    line-height: 0;
   }
-  .gallery-item picture,
+  .gallery-item--portrait {
+    max-width: 400px;
+  }
+  .gallery-item--constrain {
+    width: fit-content;
+    min-width: 280px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .gallery-item--constrain img {
+    max-width: 100%;
+    max-height: 420px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .gallery-item picture {
+    display: block;
+    line-height: 0;
+  }
   .gallery-item img {
     display: block;
     width: 100%;
     height: auto;
-    vertical-align: middle;
+    vertical-align: top;
   }
 </style>
